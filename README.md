@@ -45,20 +45,3 @@ MVVM:
 5. Выберите метод — под ним появятся поля для ввода параметров.
 6. Введите значения параметров (строки, числа и т.д.).
 7. Нажмите **Выполнить** — будет создан объект и вызван метод, результат отобразится в сообщении.
-
-## Пример класса для тестирования рефлексии
-
-Добавьте в проект `FileSystemLib`:
-
-```csharp
-using FileSystemLib.Models;
-
-namespace FileSystemLib.Additional
-{
-    public class Calculator : IReflectable
-    {
-        public int Add(int a, int b) => a + b;
-        public double Multiply(double x, double y) => x * y;
-        public string Greet(string name) => $"Hello, {name}!";
-    }
-}
