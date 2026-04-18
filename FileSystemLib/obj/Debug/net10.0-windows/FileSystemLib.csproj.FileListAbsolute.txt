@@ -1,0 +1,11 @@
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\bin\Debug\net10.0-windows\FileSystemLib.deps.json
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\bin\Debug\net10.0-windows\FileSystemLib.dll
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\bin\Debug\net10.0-windows\FileSystemLib.pdb
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\FileSystemLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\FileSystemLib.AssemblyInfoInputs.cache
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\FileSystemLib.AssemblyInfo.cs
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\FileSystemLib.csproj.CoreCompileInputs.cache
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\FileSystemLib.dll
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\refint\FileSystemLib.dll
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\FileSystemLib.pdb
+C:\Users\Vova\Downloads\FileSystemApp\FileSystemLib\obj\Debug\net10.0-windows\ref\FileSystemLib.dll

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FileSystemApp/FileSystemApp.csproj" />
+  <Project Path="FileSystemLib/FileSystemLib.csproj" />
+</Solution>
