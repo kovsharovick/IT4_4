@@ -1,0 +1,66 @@
+<Window x:Class="FileSystemApp.ReflectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:FileSystemApp.ViewModels"
+        Title="Reflection - загрузка и вызов методов" Height="650" Width="700">
+    <Window.DataContext>
+        <vm:ReflectionViewModel/>
+    </Window.DataContext>
+
+    <ScrollViewer>
+        <StackPanel Margin="10">
+            <TextBlock Text="Путь к сборке (DLL):" FontWeight="Bold"/>
+            <TextBox Text="{Binding AssemblyPath, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"/>
+            <Button Content="Загрузить сборку" Command="{Binding LoadAssemblyCommand}" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Классы, реализующие IReflectable:" FontWeight="Bold"/>
+            <ComboBox ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}" DisplayMemberPath="Name" Margin="0,5"/>
+
+            <TextBlock Text="Конструкторы:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox ItemsSource="{Binding Constructors}" SelectedItem="{Binding SelectedConstructor}" Margin="0,5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Text="Параметры конструктора:" FontWeight="Bold"/>
+            <ItemsControl ItemsSource="{Binding ConstructorParameters}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Name}" Width="120"/>
+                            <TextBlock Text="{Binding TypeName}" Width="100"/>
+                            <TextBox Text="{Binding Value}" Width="150"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <TextBlock Text="Методы:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox ItemsSource="{Binding Methods}" SelectedItem="{Binding SelectedMethod}" Margin="0,5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Text="Параметры метода:" FontWeight="Bold"/>
+            <ItemsControl ItemsSource="{Binding MethodParameters}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="2">
+                            <TextBlock Text="{Binding Name}" Width="120"/>
+                            <TextBlock Text="{Binding TypeName}" Width="100"/>
+                            <TextBox Text="{Binding Value}" Width="150"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Button Content="Выполнить" Command="{Binding ExecuteCommand}" Margin="0,20,0,10" Height="30"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="FileSystemApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:FileSystemApp.ViewModels"
+        Title="File System Explorer" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TreeView Grid.Row="0" ItemsSource="{Binding RootElements}" SelectedItemChanged="TreeView_SelectedItemChanged">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Elements}">
+                    <TextBlock Text="{Binding Name}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="Selected Element:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding SelectedElement.Name}"/>
+            <TextBlock Text="{Binding SelectedElement.Path}"/>
+            <TextBlock Text="{Binding SelectedElement.Size}"/>
+
+            <TextBlock Text="Target Folder:" FontWeight="Bold" Margin="0,20,0,0"/>
+            <TreeView ItemsSource="{Binding RootElements}" SelectedItemChanged="TreeView_TargetFolder_SelectedItemChanged">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Elements}">
+                        <TextBlock Text="{Binding Name}"/>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+
+            <Button Content="Move" Command="{Binding MoveCommand}" Margin="0,10,0,0"/>
+            <Button Content="Copy" Command="{Binding CopyCommand}" Margin="0,5,0,0"/>
+            <Button Content="Reflection" Command="{Binding OpenReflectionCommand}" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
